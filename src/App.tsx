@@ -1,25 +1,25 @@
-import "./App.css";
-import Navbar from "./components/navbar";
-import Page from "./components/search_bar";
-import { useRef } from "react";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+import Navbar from './components/navbar'
+import './App.css'
+import GetQrPage from './pages/get_qr_page'
+import ViewMenuPage from './pages/view_menu_page'
+import AiChatPage from './pages/ai_chat_page'
 
 function App() {
-  const pages = useRef(10);
-
   return (
     <>
-      <Navbar></Navbar>
-      <div className="h-2"/>
-      <div className="w-screen justify-center">
-        {[...Array(pages.current)].map(() => (
-          <div>
-            <Page></Page>
-            <div className="w-2 h-2" />
-          </div>
-        ))}
-      </div>
+      <BrowserRouter>
+        <Navbar></Navbar>
+        <div className="h-2" />
+        <Routes>
+          <Route path="/" element={<GetQrPage />} />
+          <Route path="menu" element={<ViewMenuPage />} />
+          <Route path="ai" element={<AiChatPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
