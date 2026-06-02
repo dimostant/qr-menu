@@ -5,6 +5,8 @@ function ViewMenuPage() {
   const pages = useRef(10)
 
   return (
+    <>
+    <div className="h-2"/>
     <div className="w-screen justify-center">
       {[...Array(pages.current)].map(() => (
         <div>
@@ -13,6 +15,7 @@ function ViewMenuPage() {
         </div>
       ))}
     </div>
+    </>
   )
 }
 
